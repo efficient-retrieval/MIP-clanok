@@ -73,10 +73,11 @@ https://www.sciencedirect.com/science/article/abs/pii/0164121288900040
 In every system each record is accessed with varying frequency. This fact is leveraged by caching. Caching layer makes for even faster retrieval of the most used records. The most queried records are stored in a temporary memory with faster read speeds than the main larger memory. This helps reduce time as well as the stress on the main storage. \cite{10.1145/3009837.3009891}
 
 \subsection{Caching strategies}
+The cache layer is a system detached from the main database. This fact allows for different implementations not tied to the underlying database used. This sections aims to look into the most popular arrangements and their pros and cons. % TODO: link prisma and aws database manuals
 
 \subsubsection{Cache-aside}
 \label{sec:cache-aside}
-In this arrangement, users query first requests from the cache. If there is a cache hit, the cache has the requested data and it is returned. If there is a cache miss, the database needs to be queried and the data subsequently returned and stored in the cache for next request. The benefits are in its simplicity and usefulness in general use cases mainly with high read intensity. 
+In this arrangement, users first request from the cache. If there is a cache hit, the cache has the requested data and it is returned. If there is a cache miss, the database needs to be queried and the data subsequently returned and stored in the cache for next request. The benefits are in its simplicity and usefulness in general use cases mainly with high read intensity. 
 % read-heavy workloads Fit for search engines. 
 Cons arise when writing is involved as the speed benefits are lost when any write has to be synced between cache and the database.
 % TODO: diagram
@@ -89,11 +90,8 @@ Cons arise when writing is involved as the speed benefits are lost when any writ
 \end{figure}
 
 % TODO: change to cache through - merge read and write
-\subsubsection{Read-through}
-Very similiar to Cache-aside \ref{sec:cache-aside} The main difference is in which party is responsible for populating the cache. While in Cache-aside the cache is written to by the application. In Read-through arrangement the cache is hidden behind the database management system. Every request goes through the cache, which then proceeds to call the database.
-
-\subsubsection{Write-through}
-Write-through solves the issue of syncing write changes with the cache. In this arrangement all writes as well as reads go through the cache, which, then calls the database. This setup hides the slow main storage away from the users and lets him only talk with the fast cache.
+\subsubsection{Cache-through}
+Very similiar to Cache-aside \ref{sec:cache-aside} The main difference is in which party is responsible for populating the cache. While in Cache-aside the cache is written to by the application. In Read-through arrangement the cache is hidden behind the database management system. Every request goes through the cache, which then proceeds to call the database. Write-through solves the issue of syncing write changes with the cache. In this arrangement all writes as well as reads go through the cache, which, then calls the database. This setup hides the slow main storage away from the users and lets him only talk with the fast cache.
 
 \begin{figure}[h]
     \centering
@@ -101,6 +99,9 @@ Write-through solves the issue of syncing write changes with the cache. In this 
     \caption{Cache through}
     \label{fig:cache-through}
 \end{figure}
+
+\subsubsection{Cache-back}
+In this setup each request goes through the cache, utilizing all the speed benefits the faster storage offers. However, the data isn't immediately passed to the main database, instead the cache passes the data in set intervals, while it is free from load.
 
 \begin{figure}[h]
     \centering
@@ -110,7 +111,7 @@ Write-through solves the issue of syncing write changes with the cache. In this 
 \end{figure}
 
 \subsection{Caching algorithms}
-Since the cache is way smaller than the main memory. There comes a point when the stored data needs to be cycled. There are various algorithms employed to maximize cache hits and minimize cache misses.
+Since the cache is way smaller than the main memory. There comes a point when the stored data needs to be cycled. There are various algorithms employed to maximize cache hits and minimize cache misses.\cite{755618}
 
 \subsubsection{Random replacement}
 
@@ -125,7 +126,6 @@ Since the cache is way smaller than the main memory. There comes a point when th
 
 \section{Conclusion}
 
-\newpage
 
 \section*{TODO: References}
 \href{https://citeseerx.ist.psu.edu/pdf/24ad3ea19602f0737807cb05fafe44c6c2f86aaf}{Database indexing: yesterday and today}\\
