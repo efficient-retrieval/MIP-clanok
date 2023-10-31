@@ -1,0 +1,21 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>170</x><y>480</y><w>100</w><h>30</h></coordinates><panel_attributes>Bratislava</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>170</x><y>430</y><w>100</w><h>30</h></coordinates><panel_attributes>/City Index/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>170</x><y>530</y><w>100</w><h>30</h></coordinates><panel_attributes>New York</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>170</x><y>580</y><w>100</w><h>30</h></coordinates><panel_attributes>Paris</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>530</x><y>340</y><w>100</w><h>30</h></coordinates><panel_attributes>/Person Table/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>470</x><y>390</y><w>210</w><h>90</h></coordinates><panel_attributes>Person
+--
+-id: 1
+--
+-name: Jake
+--
+-city: New York</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>470</x><y>500</y><w>210</w><h>90</h></coordinates><panel_attributes>Person
+--
+-id: 2
+--
+-name: Peter
+--
+-city: Bratislava</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>470</x><y>610</y><w>210</w><h>90</h></coordinates><panel_attributes>Person
+--
+-id: 3
+--
+-name: Anton
+--
+-city: Paris</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>490</y><w>230</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>210;20;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>390</y><w>230</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>210;10;10;160</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>590</y><w>230</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>210;30;10;10</additional_attributes></element></diagram>
