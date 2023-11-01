@@ -34,12 +34,11 @@
 \maketitle
 
 \begin{abstract}
-% TODO: change a bit
+% TODO: remove indecisive tenses
 Getting the user, the information they seek as quickly and efficiently as possible is key when talking about searching in today’s world. In this article I am choosing to focus on the ways this is achieved behind the scenes. I want to compare different indexing techniques and other optimizations modern database engines employ to provide optimal storage and retrieval efficiency. I also want to look at methods of making retrieval faster by utilizing caching in a way that increases the performance of storage access. Furthermore, querying the database for data the user wants quickly, would not be possible without proper tokenization of the data in the database, so I would like to mention it as well.
 \end{abstract}
 
 \section{Introduction}
-% TODO: Add precise paragraph or page cited
 \cite{Database-indexing:-yesterday-and-today}
 TODO Write about importance of indexing, caching and tokenization
 
@@ -128,13 +127,16 @@ This strategy chooses to replace items based on the recency of their last access
 \subsubsection{Least frequently used}
 
 \section{Tokenization}
-
+% TODO: Tie in with the other sections
+Tokenization is what ties information retrieval together. It bridges the gap between natural language and databases. 
+Natural language contains many filler words and padding not relevant to the information being search. To efficiently convert text to a database query it needs to be tokenized. During tokenization the critical parts of each sentence are filtered and used as "tokens". \cite{An-Effective-Tokenization-Algorithm-for-Information-Retrieval-Systems} %TODO: stemming %TODO stemming diagram
 
 \section{Conclusion}
+In the world of databases there are methods, which if used correctly result in huge performance increases with little added cost. All of the mentioned methods used together make up large part of today's internet infrastructure. Without these optimizations the internet would not be where it is today. These methods may also help create even better optimizations in the future and move data processing to the next level. %TODO:
 
 
 \section*{TODO: References}
-\href{https://citeseerx.ist.psu.edu/pdf/24ad3ea19602f0737807cb05fafe44c6c2f86aaf}{Database indexing: yesterday and today}\\
+\href{https://www.researchgate.net/publication/274837474_An_Effective_Tokenization_Algorithm_for_Information_Retrieval_Systems}{An Effective Tokenization Algorithm for Information Retrieval Systems}\\
 \href{https://dl.acm.org/doi/pdf/10.1145/356643.356645}{HASH TABLE M E T H O D S}\\
 \href{https://ieeexplore.ieee.org/abstract/document/755618?casa_token=1dPMFNh1uOMAAAAA:EhTd5TzTa1RHsWQThUec5nDGgAe82xXTYaG32s8GsTNty9qoUoSPlu0Rzh-it8kQ-qtl19_LX-0KjA}{Caching on the World Wide Web}\\
 \href{https://link.springer.com/chapter/10.1007/978-981-15-6198-6_18}{Study of Various Methods for Tokenization}\\
