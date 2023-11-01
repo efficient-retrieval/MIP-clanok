@@ -11,6 +11,7 @@
 \usepackage{url} % príkaz \url na formátovanie URL
 \usepackage{hyperref} % odkazy v texte budú aktívne (pri niektorých triedach dokumentov spôsobuje posun textu)
 \usepackage{lipsum}
+\usepackage{csquotes}
 
 \usepackage{cite}
 %\usepackage{times}
@@ -43,9 +44,11 @@ Getting the user, the information they seek as quickly and efficiently as possib
 TODO Write about importance of indexing, caching and tokenization
 
 \section{Indexing}
-
-
-Indexing is used to make querying data faster and more efficient. Since the data can be any size, (TODO: how much data search engines store, https://www.google.com/search/howsearchworks/how-search-works/organizing-information/) and stored in any order, going over every record is unfeasible. With the amount of requests users around the globe make, the equipment costs grow rapidly. To solve this issue, indexing has been introduced as a method to help avoid the need of traversing all of the data on each request.
+Indexing is used to make querying data faster and more efficient. Since the data can be any size,
+and stored in any order, going over every record is unfeasible. With the amount of requests users around the globe make, the equipment costs grow rapidly. To solve this issue, indexing has been introduced as a method to help avoid the need of traversing all of the data on each request. From a report by one of the largest search engines in the world Google\cite{Google}:
+\begin{displayquote}
+The Google Search index contains hundreds of billions of webpages and is well over 100,000,000 gigabytes in size. It’s like the index in the back of a book — with an entry for every word seen on every webpage we index. When we index a webpage, we add it to the entries for all of the words it contains.
+\end{displayquote}
 
 Indices can be created for each of the parameters that needs to be sorted separately. This reduces storage requirements, drastically. Instead of choosing between searching the table each time and having multiple copies of the table ordered by different columns, a third option is now possible. Storing only references to the real table along with the ordered indices. \ref{fig:index-city}
 
@@ -72,8 +75,8 @@ https://www.sciencedirect.com/science/article/abs/pii/0164121288900040
 \section{Caching}
 In every system each record is accessed with varying frequency. This fact is leveraged by caching. Caching layer makes for even faster retrieval of the most used records. The most queried records are stored in a temporary memory with faster read speeds than the main larger memory. This helps reduce time as well as the stress on the main storage. \cite{10.1145/3009837.3009891}
 
-\subsection{Caching strategies}
-The cache layer is a system detached from the main database. This fact allows for different implementations not tied to the underlying database used. This sections aims to look into the most popular arrangements and their pros and cons. % TODO: link prisma and aws database manuals
+\subsection{Accessing cache}
+The cache layer is a system detached from the main database. This fact allows for different implementations not tied to the underlying database used. This sections aims to look into the most popular arrangements and their pros and cons.\cite{AWS}\cite{Prisma} % TODO: link prisma and aws database manuals
 
 \subsubsection{Cache-aside}
 \label{sec:cache-aside}
@@ -110,14 +113,17 @@ In this setup each request goes through the cache, utilizing all the speed benef
     \label{fig:cache-back}
 \end{figure}
 
-\subsection{Caching algorithms}
-Since the cache is way smaller than the main memory. There comes a point when the stored data needs to be cycled. There are various algorithms employed to maximize cache hits and minimize cache misses.\cite{755618}
+\subsection{Invalidating cache}
+Since the cache is way smaller than the main memory. There comes a point when the stored data needs to be cycled. There are various algorithms employed to maximize cache hits and minimize cache misses.\cite{755618}\cite{Redis}
 
 \subsubsection{Random replacement}
+Random replacement is the simplest form of cache invalidation and is therefore preferred for the simplest of applications. The main benefit comes from the randomness of this approach. There is no need to perform any additional book keeping, like the frequency of access to decide which record to replace. Each piece of cached data is assumed to be just as likely to be accessed in the future so, which one gets removed does not matter.
 
 \subsubsection{First in first out}
+The first in first out approach tries to reason about, which data the user might need next. The heuristic reasons that a user is more likely to access data he accessed recently. This algorithm brings in some logic to, which data is replaced, but still keeps it to a minimum, while providing better results.
 
 \subsubsection{Least recently used}
+This strategy chooses to replace items based on the recency of their last access. At its core it is very similar to the First in first out approach, however there is extra logic included. If a piece of data was cached last it can move up the queue when accessed to improve efficiency.
 
 \subsubsection{Least frequently used}
 

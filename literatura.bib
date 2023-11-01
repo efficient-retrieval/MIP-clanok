@@ -1,4 +1,4 @@
-@InProceedings{10.1007/978-3-319-93803-5_1,
+@inproceedings{10.1007/978-3-319-93803-5_1,
 author="Kamatkar, Sadhana J.
 and Kamble, Ajit
 and Viloria, Amelec
@@ -13,7 +13,6 @@ year="2018",
 publisher="Springer International Publishing",
 address="Cham",
 pages="3--11",
-abstract="Today, IT professionals are challenged with the task of ongoing improvements to achieve goals of businesses. Unfortunately, some factor/Resources, skill environment does not dynamically grow as fast as business needs. That sequence of events creates major obstacles for DB infrastructure, deployment, administration and maintenance. This paper discusses the performance issues, different bottlenecks such as CPU bottlenecks, Memory structures, Input output capacity issue, Database Design issues and Indexing issues. Also this paper address Tuning stages and how SQL queries can be optimized for better performance. In this paper we are focusing on query tuning tips {\&} tricks which can be applied to gain immediate performance gain by creating Query Execution Flow Chart. We demonstrate the application of this technique in an Employee Biometric Attendance Management System.",
 isbn="978-3-319-93803-5"
 }
 
@@ -37,7 +36,6 @@ publisher = {Association for Computing Machinery},
 address = {New York, NY, USA},
 url = {https://doi.org/10.1145/3009837.3009891},
 doi = {10.1145/3009837.3009891},
-abstract = {Most popular Web applications rely on persistent databases based on languages like SQL for declarative specification of data models and the operations that read and modify them. As applications scale up in user base, they often face challenges responding quickly enough to the high volume of requests. A common aid is caching of database results in the application's memory space, taking advantage of program-specific knowledge of which caching schemes are sound and useful, embodied in handwritten modifications that make the program less maintainable. These modifications also require nontrivial reasoning about the read-write dependencies across operations. In this paper, we present a compiler optimization that automatically adds sound SQL caching to Web applications coded in the Ur/Web domain-specific functional language, with no modifications required to source code. We use a custom cache implementation that supports concurrent operations without compromising the transactional semantics of the database abstraction. Through experiments with microbenchmarks and production Ur/Web applications, we show that our optimization in many cases enables an easy doubling or more of an application's throughput, requiring nothing more than passing an extra command-line flag to the compiler.},
 booktitle = {Proceedings of the 44th ACM SIGPLAN Symposium on Principles of Programming Languages},
 pages = {271–284},
 numpages = {14},
@@ -58,10 +56,44 @@ number = {1},
 issn = {0362-1340},
 url = {https://doi.org/10.1145/3093333.3009891},
 doi = {10.1145/3093333.3009891},
-abstract = {Most popular Web applications rely on persistent databases based on languages like SQL for declarative specification of data models and the operations that read and modify them. As applications scale up in user base, they often face challenges responding quickly enough to the high volume of requests. A common aid is caching of database results in the application's memory space, taking advantage of program-specific knowledge of which caching schemes are sound and useful, embodied in handwritten modifications that make the program less maintainable. These modifications also require nontrivial reasoning about the read-write dependencies across operations. In this paper, we present a compiler optimization that automatically adds sound SQL caching to Web applications coded in the Ur/Web domain-specific functional language, with no modifications required to source code. We use a custom cache implementation that supports concurrent operations without compromising the transactional semantics of the database abstraction. Through experiments with microbenchmarks and production Ur/Web applications, we show that our optimization in many cases enables an easy doubling or more of an application's throughput, requiring nothing more than passing an extra command-line flag to the compiler.},
 journal = {SIGPLAN Not.},
 month = {jan},
 pages = {271–284},
 numpages = {14},
 keywords = {database result caching, Web applications, SQL, program analysis}
+}
+
+@article{755618,
+  author={Aggarwal, C. and Wolf, J.L. and Yu, P.S.},
+  journal={IEEE Transactions on Knowledge and Data Engineering}, 
+  title={Caching on the World Wide Web}, 
+  year={1999},
+  volume={11},
+  number={1},
+  pages={94-107},
+  doi={10.1109/69.755618}
+}
+
+@misc{AWS,
+  title = {{AWS Whitepaper} Caching patterns},
+  howpublished = {\url{https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/caching-patterns.html}},
+  note = {Accessed: 2023-11-01}
+}
+
+@misc{Prisma,
+  title = {{Prisma's Data Guide} Introduction to database caching},
+  howpublished = {\url{https://www.prisma.io/dataguide/managing-databases/introduction-database-caching}},
+  note = {Accessed: 2023-11-01}
+}
+
+@misc{Redis,
+  title = {{Redis} Cache Invalidation},
+  howpublished = {\url{https://redis.com/glossary/cache-invalidation}},
+  note = {Accessed: 2023-11-01}
+}
+
+@misc{Google,
+  title = {{Google} How Google Search organizes information},
+  howpublished = {\url{https://www.google.com/search/howsearchworks/how-search-works/organizing-information/}},
+  note = {Accessed: 2023-11-01}
 }
