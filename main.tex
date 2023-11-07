@@ -58,7 +58,9 @@ However, indexing isn't one size fits all, there are many options, which cut dif
     \label{fig:index-city}
 \end{figure}
 
-%TODO: solarwinds article
+\subsection{Creating an effective key}
+As mentioned in the above paragraph, the performance improvement indexing provides is dependent on the data stored in the database.
+Take the example in Figure 1 again\ref{fig:index-city}. The id column is unique for each person, making it a prime candidate for an index key. However, the index must also be a value users look up the data by, making the name or the city column more fitting. The problem is the name and city are not required to be unique for each person. This fact reduces the performance increase they would provide. These facts make indexing a balancing act based on the user's needs and the stored data. The uniqueness of values in a database column is measured as cardinality. And in the recent years there have been attempts to choose optimal columns for indexing using the help of artificial intelligence.\cite{li2023stone}
 
 \section{Caching}
 In every system each record is accessed with varying frequency. This fact is leveraged by caching. Caching layer makes for even faster retrieval of the most used records. The most queried records are stored in a temporary memory with faster read speeds than the main larger memory. This helps reduce time as well as the stress on the main storage. \cite{10.1145/3009837.3009891}
@@ -120,7 +122,7 @@ When invalidating entries with the least frequently used heuristic, the data tha
 \section{Tokenization}
 % TODO: Tie in with the other sections
 Tokenization is what ties information retrieval together. It bridges the gap between natural language and databases. 
-Natural language contains many filler words and padding not relevant to the information being search. To efficiently convert text to a database query it needs to be tokenized. During tokenization the critical parts of each sentence are filtered and used as "tokens". \cite{Effective-Tokenization} %TODO: stemming %TODO stemming diagram
+Natural language contains many filler words and padding not relevant to the information being searched. To efficiently convert text to a database query it needs to be tokenized. During tokenization the critical parts of each sentence are filtered and used as "tokens". \cite{Effective-Tokenization} %TODO: stemming %TODO stemming diagram 
 
 \section{Conclusion}
 In the world of databases there are methods, which if used correctly result in huge performance increases with little added cost. All of the mentioned methods used together make up large part of today's internet infrastructure. Without these optimizations the internet would not be where it is today. These methods may also help create even better optimizations in the future and move data processing to the next level. %TODO:
