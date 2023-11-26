@@ -117,14 +117,40 @@ This strategy chooses to replace items based on the recency of their last access
 \subsubsection{Least frequently used}
 When invalidating entries with the least frequently used heuristic, the data that is accessed the least is assumed to be least likely used in the future as well. Invalidating based on the access frequency means keeping around data that is accessed lots of times. This method provides a benefit over LRU \ref{sec:lru} in access patterns that would invalidate elements accessed in batches.\cite{chand2019comparative}\cite{comparison-cache-replacement}.
 
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|p{4cm}|p{4cm}|}
+        \hline
+        Strategy & Pros & Cons \\
+        \hline
+        FIFO & Simple. No extra storage. & Cache misses with repeating access patterns.\\
+        \hline
+        LRU & Best performance in most use cases & Extra logic. Additional storage.\\
+        \hline
+        LFU & Resistant against temporary access changes & Updating frequency after each visit.\\
+        \hline
+    \end{tabular}
+    \caption{Comparison of strategies}
+    \label{tab:cache-strategy-comparison}
+\end{table}
 % TODO: weaknesses from: https://www.researchgate.net/publication/325014338_A_Comparison_of_Cache_Replacement_Algorithms_for_Video_Services
 
 \section{Tokenization}
-% TODO: Tie in with the other sections
 Tokenization is what ties information retrieval together. It bridges the gap between natural language and databases. 
-Natural language contains many filler words and padding not relevant to the information being searched. To efficiently convert text to a database query it needs to be tokenized. During tokenization the critical parts of each sentence are filtered and used as "tokens". \cite{Effective-Tokenization} %TODO: stemming %TODO stemming diagram 
+Natural language contains many filler words and padding not relevant to the information being searched. To efficiently convert text to a database query it needs to be tokenized. During tokenization the key parts of each sentence are filtered and used as "tokens". \cite{Effective-Tokenization}
+\subsection{Stemming}
+After natural language is tokenized, it is also useful to analyze the data and link related words together. The process used to achieve this is called stemming. Stemming tries to find words with similar roots and group them together. Making the retrieval process more robust. The tokens with the same roots can be used to retrieve the same information, even though the natural language queries are different. The simplified idea of this process is depicted in Figure 5\ref{fig:matching-query}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{Matching-query.png}
+    \caption{Matching tokens with indices}
+    \label{fig:matching-query}
+\end{figure}
+% TODO: cite diagrams
 
 \section{Conclusion}
+% add something about tokenization and ir from last section
 In the world of databases there are methods, which if used correctly result in huge performance increases with little added cost. All of the mentioned methods used together make up large part of today's internet infrastructure. Without these optimizations the internet would not be where it is today. These methods may also help create even better optimizations in the future and move data processing to the next level. %TODO:
 
 %\section*{TODO: References}
